@@ -4,11 +4,20 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_ROLE, SOCIALS } from '../consts';
 
 const posts = (await getCollection('blog'))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
+
+const personLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: SITE_TITLE,
+	jobTitle: SITE_ROLE,
+	url: Astro.site?.toString(),
+	sameAs: [SOCIALS.github, SOCIALS.linkedin, SOCIALS.scholar],
+};
 
 const focus = [
 	{
@@ -33,6 +42,7 @@ const focus = [
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<script type="application/ld+json" set:html={JSON.stringify(personLd)} />
 	</head>
 	<body>
 		<Header />
