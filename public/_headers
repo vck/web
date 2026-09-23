@@ -1,0 +1,21 @@
+# Served by Cloudflare Pages. See https://developers.cloudflare.com/pages/configuration/headers/
+# NOTE: set `site` in astro.config.mjs to the real domain before deploying.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Hashed build assets: safe to cache for a year
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pagefind search index: rebuilt every deploy, always revalidate
+/pagefind/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Starter Content-Security-Policy (currently OFF - test before enabling,
+# the blog template and Pagefind UI use inline scripts/styles):
+# /*
+#   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'

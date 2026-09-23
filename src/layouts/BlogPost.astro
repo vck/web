@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import 'katex/dist/katex.min.css';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			.hero-image {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+			.hero-image img {
+				display: block;
+				margin: 0 auto;
+				border: 2px solid var(--ink);
+				border-radius: 4px;
+				box-shadow: 6px 6px 0 var(--ink);
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+			.mermaid {
+				background: #fff;
+				border: 2px solid var(--ink);
+				border-radius: 4px;
+				box-shadow: 6px 6px 0 var(--ink);
+				padding: 1.5rem 1rem;
+				margin: 2rem 0;
+				overflow-x: auto;
+			}
+			.prose figure {
+				margin: 2rem 0;
+			}
+			.prose figure img {
+				border: 2px solid var(--ink);
+				border-radius: 4px;
+				box-shadow: 6px 6px 0 var(--ink);
+			}
+			.prose figcaption {
+				margin-top: 0.75rem;
+				font-family: var(--mono);
+				font-size: 0.8rem;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: rgb(var(--gray));
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<section class="page-hero">
+			<div class="wrap">
+				<p class="eyebrow">Blog</p>
+				<h1>{title}</h1>
+				<p class="lede">{description}</p>
+				<div class="meta-row">
+					<span><FormattedDate date={pubDate} /></span>
+					{
+						updatedDate && (
+							<span class="last-updated-on">
+								Updated <FormattedDate date={updatedDate} />
+							</span>
+						)
+					}
+				</div>
+			</div>
+		</section>
+		<main>
+			<article>
+				<div class="hero-image">
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+				</div>
+				<div class="prose">
+					<slot />
+					<hr />
+					<a class="back-link" href="/blog">← All posts</a>
+				</div>
+			</article>
+		</main>
+		<Footer />
+		<script>
+			import mermaid from 'mermaid';
+			mermaid.initialize({ startOnLoad: false });
+			const blocks = document.querySelectorAll('pre > code.language-mermaid');
+			for (const code of blocks) {
+				const pre = code.parentElement;
+				if (!pre) continue;
+				const div = document.createElement('div');
+				div.className = 'mermaid';
+				div.textContent = code.textContent ?? '';
+				pre.replaceWith(div);
+			}
+			if (blocks.length > 0) {
+				await mermaid.run();
+			}
+		</script>
+	</body>
+</html>

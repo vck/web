@@ -1,0 +1,165 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SOCIALS } from '../consts';
+
+const now = [
+	{
+		index: '01',
+		title: 'CEO & Founder — Hilbertex',
+		text: 'Leading an AI engineering lab shipping CV, ML, and LLM-based systems for B2B and B2G markets — architecture to production with a team of 5+ engineers.',
+	},
+	{
+		index: '02',
+		title: 'Founder & CTO — Nusantara Pixel Labs',
+		text: 'Vantara: AI vision and CCTV intelligence — YOLOv8 + ByteTrack on edge CPU/Jetson hardware, built for ports, power, and energy operators.',
+	},
+	{
+		index: '03',
+		title: 'Founder & CEO — Fermi Dynamics',
+		text: 'Industrial AI and autonomous systems venture — expanding applied vision beyond the lab into heavy industry.',
+	},
+];
+
+const track = [
+	{
+		when: 'Previously',
+		title: 'AI Researcher & Software Engineer',
+		where: 'Cosmiqo',
+		text: 'Led the machine-vision blueprint for palm fruit sortation: model training, vision pipeline, dashboard, field testing, and production deployment.',
+	},
+	{
+		when: 'Previously',
+		title: 'Full-Stack Software Engineer',
+		where: 'Stroll Social',
+		text: 'Built a data-driven profile ranking system in Python and refactored the admin panel from Flask to a React + NestJS architecture.',
+	},
+	{
+		when: 'Foundation',
+		title: 'B.Sc. Physics',
+		where: 'Universitas Riau',
+		text: 'Photonics, optics, signal processing, computational physics. Thesis: volumetric estimation using laser cross-sections and image processing.',
+	},
+];
+
+const arsenal = [
+	'YOLOv8',
+	'ByteTrack',
+	'EfficientNet-B3',
+	'ONNX',
+	'Edge inference',
+	'Jetson / CPU',
+	'Multi-object tracking',
+	'FastAPI',
+	'TimescaleDB',
+	'Redis',
+	'LLM orchestration',
+	'Agentic systems',
+	'Python',
+	'React + NestJS',
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`About — ${SITE_TITLE}`}
+			description="Vicky Dasta — founder and computer vision engineer shipping production-grade vision systems, from edge inference to CCTV intelligence."
+		/>
+	</head>
+	<body>
+		<Header />
+		<section class="hero">
+			<div class="wrap">
+				<p class="eyebrow">About</p>
+				<h1>I ship vision systems that work <span class="stroke">in the field</span></h1>
+				<p class="lede">
+					I'm <strong style="color:#fff">Vicky Dasta</strong> — founder, AI researcher, and
+					computer vision engineer. Physics-trained, production-obsessed: from laser
+					volumetry in a photonics lab to CCTV intelligence on ports and power plants.
+				</p>
+				<div class="meta-row">
+					<span>90–99% system success rates</span>
+					<span>Edge-first deployments</span>
+					<span>Pekanbaru / Remote</span>
+				</div>
+			</div>
+		</section>
+		<main class="wrap">
+			<section class="home-section" aria-label="By the numbers">
+				<ul class="stats">
+					<li>
+						<span class="stat-num">90–99<em>%</em></span>
+						<span class="stat-label">Production system success rates</span>
+					</li>
+					<li>
+						<span class="stat-num">3<em>×</em></span>
+						<span class="stat-label">Ventures founded &amp; led</span>
+					</li>
+					<li>
+						<span class="stat-num">5<em>+</em></span>
+						<span class="stat-label">Engineers led end-to-end</span>
+					</li>
+				</ul>
+			</section>
+			<section class="home-section" aria-labelledby="now-heading">
+				<h2 class="section-title" id="now-heading">Now</h2>
+				<ul class="cards">
+					{
+						now.map((item) => (
+							<li class="card">
+								<span class="index">{item.index}</span>
+								<h3>{item.title}</h3>
+								<p>{item.text}</p>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			<section class="home-section" aria-labelledby="track-heading">
+				<h2 class="section-title" id="track-heading">Track record</h2>
+				<ol class="timeline">
+					{
+						track.map((item) => (
+							<li>
+								<span class="when">{item.when}</span>
+								<h3>{item.title}</h3>
+								<p>
+									<span class="where">{item.where} — </span>
+									{item.text}
+								</p>
+							</li>
+						))
+					}
+				</ol>
+			</section>
+			<section class="home-section" aria-labelledby="arsenal-heading">
+				<h2 class="section-title" id="arsenal-heading">Arsenal</h2>
+				<ul class="chips">
+					{arsenal.map((tech) => <li>{tech}</li>)}
+				</ul>
+			</section>
+		</main>
+		<section class="cta-band">
+			<div class="wrap">
+				<p class="eyebrow">Contact</p>
+				<h2>Have cameras?<br /><span class="stroke">Let's talk</span></h2>
+				<p>
+					Industrial sortation, CCTV intelligence, edge perception, or research
+					collaboration — my inbox is open.
+				</p>
+				<div class="cta-row">
+					<a class="btn btn-solid" href={SOCIALS.email}>hi@dasta.web.id</a>
+				</div>
+				<div class="social-row">
+					<a href={SOCIALS.github} target="_blank" rel="me">GitHub</a>
+					<a href={SOCIALS.linkedin} target="_blank" rel="me">LinkedIn</a>
+					<a href={SOCIALS.scholar} target="_blank" rel="me">Scholar</a>
+				</div>
+			</div>
+		</section>
+		<Footer />
+	</body>
+</html>

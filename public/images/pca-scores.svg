@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" role="img" aria-label="PCA scores plot showing two sample batches and one outlier">
+  <rect width="680" height="520" fill="#ffffff"/>
+  <text x="24" y="34" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#101014">SCORES PLOT: PC1 vs PC2</text>
+
+  <!-- axes through center (340, 270) -->
+  <line x1="60" y1="270" x2="640" y2="270" stroke="#101014" stroke-width="2" marker-end="url(#ax)"/>
+  <line x1="340" y1="470" x2="340" y2="60" stroke="#101014" stroke-width="2" marker-end="url(#ax)"/>
+  <text x="628" y="300" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#101014">PC1 · 62%</text>
+  <text x="352" y="80" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="14" font-weight="700" fill="#101014">PC2 · 21%</text>
+
+  <!-- cluster A ellipse -->
+  <ellipse cx="214" cy="356" rx="52" ry="46" fill="none" stroke="#606fa0" stroke-width="2" stroke-dasharray="7 5"/>
+  <!-- cluster A points (accent) -->
+  <g fill="#2b3bff">
+    <circle cx="196" cy="369" r="7"/>
+    <circle cx="223" cy="351" r="7"/>
+    <circle cx="187" cy="342" r="7"/>
+    <circle cx="232" cy="378" r="7"/>
+    <circle cx="205" cy="333" r="7"/>
+    <circle cx="241" cy="360" r="7"/>
+  </g>
+  <text x="120" y="430" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#2b3bff">BATCH A</text>
+
+  <!-- cluster B points (ink) -->
+  <g fill="#101014">
+    <circle cx="439" cy="207" r="7"/>
+    <circle cx="457" cy="189" r="7"/>
+    <circle cx="430" cy="180" r="7"/>
+    <circle cx="466" cy="216" r="7"/>
+    <circle cx="448" cy="171" r="7"/>
+  </g>
+  <text x="480" y="200" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#101014">BATCH B</text>
+
+  <!-- outlier (red diamond) -->
+  <rect x="539" y="91" width="16" height="16" transform="rotate(45 547 99)" fill="#c2410c" stroke="#101014" stroke-width="2"/>
+  <text x="420" y="110" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#c2410c">OUTLIER: lamp drift?</text>
+  <line x1="435" y1="112" x2="532" y2="102" stroke="#c2410c" stroke-width="1.5"/>
+
+  <defs>
+    <marker id="ax" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#101014"/>
+    </marker>
+  </defs>
+</svg>

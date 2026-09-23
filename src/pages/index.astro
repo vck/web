@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+const focus = [
+	{
+		index: '01',
+		title: 'Detection & Tracking',
+		text: 'YOLOv8, ByteTrack, and multi-object tracking for CCTV intelligence and industrial sortation — vision that holds up in the field.',
+	},
+	{
+		index: '02',
+		title: 'Edge Inference',
+		text: 'ONNX pipelines deployed on Jetson and CPU hardware. Real-time perception where the compute actually lives.',
+	},
+	{
+		index: '03',
+		title: 'Applied Research',
+		text: 'Physics-rooted imaging — from laser cross-section volumetry to agentic LLM systems. Research that ships to production.',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<section class="hero">
+			<div class="wrap">
+				<p class="eyebrow">AI Researcher / Computer Vision Engineer</p>
+				<h1>Vicky<br /><span class="stroke">Dasta</span></h1>
+				<p class="role">Detection<span class="sep">/</span>Tracking<span class="sep">/</span>Edge Inference</p>
+				<p class="lede">
+					I build production-grade vision systems — from edge inference pipelines and
+					multi-object tracking to applied research that ships. B.Sc. in Physics,
+					Universitas Riau; founder-level operator across industrial AI and autonomous systems.
+				</p>
+				<div class="cta-row">
+					<a class="btn btn-solid" href="/blog">Read the blog</a>
+					<a class="btn btn-ghost" href="/about">About me</a>
+				</div>
+			</div>
+		</section>
+		<main class="wrap">
+			<section class="home-section" aria-labelledby="focus-heading">
+				<h2 class="section-title" id="focus-heading">Focus</h2>
+				<ul class="cards">
+					{
+						focus.map((item) => (
+							<li class="card">
+								<span class="index">{item.index}</span>
+								<h3>{item.title}</h3>
+								<p>{item.text}</p>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+			<section class="home-section" aria-labelledby="writing-heading">
+				<h2 class="section-title" id="writing-heading">Latest writing</h2>
+				<ul class="post-rows">
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`}>
+									<span class="post-date">
+										<FormattedDate date={post.data.pubDate} />
+									</span>
+									<span class="post-title">{post.data.title}</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+				<a class="section-link" href="/blog">All posts →</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

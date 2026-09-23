@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" role="img" aria-label="Speculative decoding: a small model drafts five tokens, a large model verifies them in one pass">
+  <rect width="820" height="300" fill="#ffffff"/>
+  <text x="24" y="34" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#101014">SPECULATIVE DECODING: DRAFT, THEN VERIFY</text>
+
+  <!-- draft lane -->
+  <text x="24" y="102" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#2b3bff">DRAFT · small model · 5 cheap forwards</text>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15" font-weight="700" text-anchor="middle">
+    <rect x="230" y="66" width="70" height="46" fill="#eef0ff" stroke="#101014" stroke-width="2"/>
+    <text x="265" y="95" fill="#101014">the</text>
+    <rect x="310" y="66" width="70" height="46" fill="#eef0ff" stroke="#101014" stroke-width="2"/>
+    <text x="345" y="95" fill="#101014">cat</text>
+    <rect x="390" y="66" width="70" height="46" fill="#eef0ff" stroke="#101014" stroke-width="2"/>
+    <text x="425" y="95" fill="#101014">sat</text>
+    <rect x="470" y="66" width="70" height="46" fill="#eef0ff" stroke="#101014" stroke-width="2"/>
+    <text x="505" y="95" fill="#101014">on</text>
+    <rect x="550" y="66" width="70" height="46" fill="#eef0ff" stroke="#101014" stroke-width="2"/>
+    <text x="585" y="95" fill="#101014">mat</text>
+  </g>
+  <line x1="230" y1="122" x2="620" y2="122" stroke="#101014" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- verify lane -->
+  <text x="24" y="196" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#2b3bff">VERIFY · large model · 1 forward pass</text>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15" font-weight="700" text-anchor="middle">
+    <rect x="230" y="160" width="70" height="46" fill="#d7ff3e" stroke="#101014" stroke-width="2"/>
+    <text x="265" y="189" fill="#101014">the</text>
+    <rect x="310" y="160" width="70" height="46" fill="#d7ff3e" stroke="#101014" stroke-width="2"/>
+    <text x="345" y="189" fill="#101014">cat</text>
+    <rect x="390" y="160" width="70" height="46" fill="#d7ff3e" stroke="#101014" stroke-width="2"/>
+    <text x="425" y="189" fill="#101014">sat</text>
+    <rect x="470" y="160" width="70" height="46" fill="#d7ff3e" stroke="#101014" stroke-width="2"/>
+    <text x="505" y="189" fill="#101014">on</text>
+    <rect x="550" y="160" width="70" height="46" fill="#ffffff" stroke="#101014" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="585" y="189" fill="#101014">mat</text>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="22" font-weight="800" text-anchor="middle">
+    <text x="265" y="238" fill="#1a7f37">✓</text>
+    <text x="345" y="238" fill="#1a7f37">✓</text>
+    <text x="425" y="238" fill="#1a7f37">✓</text>
+    <text x="505" y="238" fill="#1a7f37">✓</text>
+    <text x="585" y="238" fill="#c2410c">✗</text>
+  </g>
+  <rect x="230" y="152" width="390" height="62" fill="none" stroke="#101014" stroke-width="2" stroke-dasharray="2 0"/>
+  <text x="24" y="272" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#606fa0">4 ACCEPTED + 1 RESAMPLED = 5 TOKENS FOR ~1 LARGE-MODEL PASS</text>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#101014"/>
+    </marker>
+  </defs>
+</svg>

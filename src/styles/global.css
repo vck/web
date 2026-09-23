@@ -1,0 +1,628 @@
+/*
+  Vicky Dasta — personal site theme.
+  Bold editorial look: heavy display type, hard-shadow cards, ink + lime.
+  Prose/blog base rules adapted from Bear Blog's default CSS (MIT).
+*/
+
+:root {
+	--ink: #101014;
+	--ink-soft: #1b1b22;
+	--paper: #fafaf7;
+	--accent: #2b3bff;
+	--accent-dark: #101a9e;
+	--lime: #d7ff3e;
+	--black: 16, 16, 20;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 27, 27, 34;
+	--gray-gradient: rgba(var(--gray-light), 50%), var(--paper);
+	--mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+}
+body {
+	font-family: var(--font-atkinson);
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: var(--paper);
+	color: rgb(var(--gray-dark));
+	font-size: 20px;
+	line-height: 1.7;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+::selection {
+	background: var(--lime);
+	color: var(--ink);
+}
+main {
+	width: 720px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 3em 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem 0;
+	color: var(--ink);
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+}
+h1 {
+	font-size: 3.052em;
+}
+h2 {
+	font-size: 2.441em;
+}
+h3 {
+	font-size: 1.953em;
+}
+h4 {
+	font-size: 1.563em;
+}
+h5 {
+	font-size: 1.25em;
+}
+strong,
+b {
+	font-weight: 700;
+}
+a {
+	color: var(--accent);
+	text-underline-offset: 0.15em;
+}
+a:hover {
+	color: var(--accent-dark);
+}
+:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 2px;
+}
+p {
+	margin-bottom: 1em;
+}
+.prose p {
+	margin-bottom: 2em;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+	font-family: var(--mono);
+	font-size: 0.85em;
+}
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0;
+	font-size: 1.333em;
+}
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+
+/* ---------- layout helpers ---------- */
+.wrap {
+	width: 960px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+}
+.eyebrow {
+	font-family: var(--mono);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+}
+.section-title {
+	font-size: clamp(2rem, 5vw, 3.25rem);
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+	line-height: 1;
+	margin: 0 0 1.5rem 0;
+}
+.section-title::before {
+	content: '';
+	display: block;
+	width: 3rem;
+	height: 0.5rem;
+	background: var(--accent);
+	margin-bottom: 1rem;
+}
+
+/* ---------- hero (dark, full-bleed) ---------- */
+.hero {
+	background:
+		repeating-linear-gradient(
+			-45deg,
+			transparent 0 23px,
+			rgba(255, 255, 255, 0.025) 23px 24px
+		),
+		var(--ink);
+	color: #fff;
+	padding: clamp(4rem, 10vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
+	border-bottom: 6px solid var(--lime);
+}
+.hero .eyebrow {
+	color: var(--lime);
+}
+.hero h1 {
+	color: #fff;
+	font-size: clamp(3.25rem, 11vw, 8rem);
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: -0.03em;
+	line-height: 0.92;
+	margin: 1rem 0;
+}
+.hero h1 .stroke {
+	color: transparent;
+	-webkit-text-stroke: 2px #fff;
+}
+.hero .role {
+	font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+	font-weight: 700;
+	color: #fff;
+	margin: 0 0 1rem 0;
+}
+.hero .role .sep {
+	color: var(--lime);
+	padding: 0 0.4em;
+}
+.hero .lede {
+	max-width: 38rem;
+	color: rgba(255, 255, 255, 0.82);
+	font-size: 1.1rem;
+}
+.hero .cta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+.btn {
+	display: inline-block;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-size: 0.95rem;
+	padding: 0.85em 1.6em;
+	border: 2px solid var(--ink);
+	text-decoration: none;
+}
+.btn-solid {
+	background: var(--lime);
+	color: var(--ink);
+	box-shadow: 5px 5px 0 rgba(215, 255, 62, 0.25);
+}
+.btn-solid:hover {
+	color: var(--ink);
+	background: #e6ff70;
+}
+.btn-ghost {
+	background: transparent;
+	color: #fff;
+	border-color: #fff;
+}
+.btn-ghost:hover {
+	color: var(--lime);
+	border-color: var(--lime);
+}
+.hero .meta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 2rem;
+	margin-top: 2.5rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.18);
+	font-family: var(--mono);
+	font-size: 0.75rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- inner page hero (compact dark band) ---------- */
+.page-hero {
+	background:
+		repeating-linear-gradient(
+			-45deg,
+			transparent 0 23px,
+			rgba(255, 255, 255, 0.025) 23px 24px
+		),
+		var(--ink);
+	color: #fff;
+	padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(2rem, 5vw, 3rem);
+	border-bottom: 6px solid var(--lime);
+}
+.page-hero .eyebrow {
+	color: var(--lime);
+}
+.page-hero h1 {
+	color: #fff;
+	font-size: clamp(2.5rem, 7vw, 4.5rem);
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+	line-height: 0.95;
+	margin: 1rem 0;
+}
+.page-hero .lede {
+	max-width: 40rem;
+	color: rgba(255, 255, 255, 0.82);
+	margin: 0;
+}
+.page-hero .meta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 2rem;
+	margin-top: 1.5rem;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.18);
+	font-family: var(--mono);
+	font-size: 0.75rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- home sections ---------- */
+.home-section {
+	padding: clamp(3rem, 7vw, 5rem) 0;
+}
+.home-section + .home-section {
+	border-top: 2px solid var(--ink);
+}
+.cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.card {
+	border: 2px solid var(--ink);
+	background: #fff;
+	padding: 1.5rem;
+	box-shadow: 6px 6px 0 var(--ink);
+}
+.card h3 {
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	margin: 0.75rem 0 0.5rem;
+}
+.card p {
+	font-size: 1rem;
+	margin: 0;
+	color: rgb(var(--gray-dark));
+}
+.card .index {
+	font-family: var(--mono);
+	font-weight: 700;
+	font-size: 0.8rem;
+	letter-spacing: 0.2em;
+	color: var(--accent);
+}
+.post-rows {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.post-rows li {
+	border-top: 2px solid var(--ink);
+}
+.post-rows li:last-child {
+	border-bottom: 2px solid var(--ink);
+}
+.post-rows a {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.25rem 1.5rem;
+	padding: 1.1rem 0;
+	text-decoration: none;
+	color: var(--ink);
+}
+.post-rows a:hover .post-title {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+.post-rows .post-date {
+	font-family: var(--mono);
+	font-size: 0.8rem;
+	letter-spacing: 0.12em;
+	color: rgb(var(--gray));
+	min-width: 7.5rem;
+}
+.post-rows .post-title {
+	font-size: 1.4rem;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+}
+.post-rows .post-text {
+	flex: 1;
+	min-width: 16rem;
+}
+.post-rows .post-desc {
+	display: block;
+	margin: 0.25rem 0 0;
+	font-size: 1rem;
+	color: rgb(var(--gray-dark));
+}
+.section-link {
+	display: inline-block;
+	margin-top: 1.75rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-size: 0.95rem;
+}
+.back-link {
+	display: inline-block;
+	margin-bottom: 2rem;
+	font-family: var(--mono);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--ink);
+}
+.back-link:hover {
+	color: var(--accent);
+}
+
+/* ---------- stats band ---------- */
+.stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	border: 2px solid var(--ink);
+	background: #fff;
+	box-shadow: 6px 6px 0 var(--ink);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.stats li {
+	padding: 1.5rem 1.25rem;
+}
+.stats li + li {
+	border-left: 2px solid var(--ink);
+}
+.stats .stat-num {
+	display: block;
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1;
+	color: var(--ink);
+}
+.stats .stat-num em {
+	font-style: normal;
+	color: var(--accent);
+}
+.stats .stat-label {
+	display: block;
+	margin-top: 0.5rem;
+	font-family: var(--mono);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: rgb(var(--gray));
+}
+@media (max-width: 720px) {
+	.stats li + li {
+		border-left: none;
+		border-top: 2px solid var(--ink);
+	}
+}
+
+/* ---------- timeline ---------- */
+.timeline {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.timeline li {
+	position: relative;
+	padding: 0 0 2rem 2rem;
+	border-left: 4px solid var(--ink);
+	margin-left: 0.5rem;
+}
+.timeline li:last-child {
+	padding-bottom: 0;
+}
+.timeline li::before {
+	content: '';
+	position: absolute;
+	left: -12px;
+	top: 0.35rem;
+	width: 16px;
+	height: 16px;
+	background: var(--lime);
+	border: 4px solid var(--ink);
+}
+.timeline .when {
+	font-family: var(--mono);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+.timeline h3 {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	margin: 0.35rem 0 0.25rem;
+}
+.timeline .where {
+	font-weight: 800;
+}
+.timeline p {
+	margin: 0.25rem 0 0;
+	font-size: 1rem;
+}
+
+/* ---------- chip cloud ---------- */
+.chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.chips li {
+	font-family: var(--mono);
+	font-size: 0.85rem;
+	font-weight: 700;
+	padding: 0.5em 1em;
+	border: 2px solid var(--ink);
+	background: #fff;
+	box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* ---------- contact CTA band ---------- */
+.cta-band {
+	background:
+		repeating-linear-gradient(
+			-45deg,
+			transparent 0 23px,
+			rgba(255, 255, 255, 0.025) 23px 24px
+		),
+		var(--ink);
+	color: #fff;
+	border-top: 6px solid var(--lime);
+	padding: clamp(3rem, 7vw, 5rem) 0;
+}
+.cta-band h2 {
+	color: #fff;
+	font-size: clamp(2.25rem, 7vw, 4.5rem);
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+	line-height: 0.95;
+	margin: 1rem 0;
+}
+.cta-band h2 .stroke {
+	color: transparent;
+	-webkit-text-stroke: 2px #fff;
+}
+.cta-band .eyebrow {
+	color: var(--lime);
+}
+.cta-band p {
+	color: rgba(255, 255, 255, 0.82);
+	max-width: 36rem;
+}
+.cta-band .cta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+.cta-band .social-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 1.5rem;
+	margin-top: 1.75rem;
+}
+.cta-band .social-row a {
+	color: rgba(255, 255, 255, 0.7);
+	font-weight: 700;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	text-decoration: none;
+}
+.cta-band .social-row a:hover {
+	color: var(--lime);
+}
+
+/* ---------- about ---------- */
+.about-list {
+	list-style: none;
+	margin: 1.5rem 0;
+	padding: 0;
+}
+.about-list li {
+	padding: 0.9rem 0 0.9rem 1.25rem;
+	border-left: 4px solid var(--lime);
+	background: #fff;
+	margin-bottom: 1rem;
+	box-shadow: 4px 4px 0 rgba(var(--black), 12%);
+}
+.about-list li strong {
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+.contact-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem 1.5rem;
+	margin-top: 1.5rem;
+	font-weight: 700;
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
+	.hero h1 .stroke {
+		-webkit-text-stroke-width: 1.3px;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}

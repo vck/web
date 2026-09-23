@@ -1,0 +1,57 @@
+---
+import { SITE_ROLE, SITE_TITLE, SOCIALS } from '../consts';
+const today = new Date();
+---
+
+<footer>
+	<p class="foot-name">{SITE_TITLE}<span class="foot-sep" aria-hidden="true"> / </span>{SITE_ROLE}</p>
+	<div class="foot-links">
+		<a href={SOCIALS.github} target="_blank" rel="me">GitHub</a>
+		<a href={SOCIALS.linkedin} target="_blank" rel="me">LinkedIn</a>
+		<a href={SOCIALS.scholar} target="_blank" rel="me">Scholar</a>
+		<a href={SOCIALS.email}>Email</a>
+		<a href="/rss.xml">RSS</a>
+	</div>
+	<p class="foot-copy">&copy; {today.getFullYear()} {SITE_TITLE}. All rights reserved.</p>
+</footer>
+<style>
+	footer {
+		padding: 3em 1em 4em 1em;
+		background: var(--ink);
+		color: rgba(255, 255, 255, 0.7);
+		text-align: center;
+		border-top: 4px solid var(--lime);
+	}
+	.foot-name {
+		margin: 0;
+		color: #fff;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.foot-sep {
+		color: var(--lime);
+	}
+	.foot-links {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.25rem 1.5rem;
+		margin-top: 1em;
+	}
+	.foot-links a {
+		color: rgba(255, 255, 255, 0.7);
+		font-weight: 700;
+		font-size: 0.9rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+	}
+	.foot-links a:hover {
+		color: var(--lime);
+	}
+	.foot-copy {
+		margin: 1.5em 0 0;
+		font-size: 0.85rem;
+	}
+</style>
