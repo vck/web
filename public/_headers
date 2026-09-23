@@ -1,5 +1,5 @@
 # Served by Cloudflare Pages. See https://developers.cloudflare.com/pages/configuration/headers/
-# NOTE: set `site` in astro.config.mjs to the real domain before deploying.
+# Canonical domain: https://dasta.web.id (set as `site` in astro.config.mjs).
 
 /*
   X-Frame-Options: DENY
