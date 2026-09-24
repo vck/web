@@ -2,6 +2,7 @@
 title: 'Faster Vision Inference: From Detector to Deployed Pipeline'
 description: 'ONNX, quantization, resolution trade-offs, and tracking tricks — how I squeeze real-time perception out of Jetson and CPU edge boxes.'
 pubDate: 'Sep 10 2026'
+tags: ['Computer Vision', 'Inference']
 ---
 
 A detector that runs 30 FPS in a benchmark but 6 FPS in your pipeline isn't a 30 FPS detector. Most of the gap is outside the model. Here's how I think about vision inference speed, end to end.

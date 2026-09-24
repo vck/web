@@ -2,6 +2,7 @@
 title: 'Training Detection Models That Survive the Field'
 description: 'Data curation, augmentation for ugly conditions, and evaluation beyond mAP — a field manual for training detectors that hold up on deployment.'
 pubDate: 'Sep 02 2026'
+tags: ['Computer Vision', 'Training']
 ---
 
 The gap between validation mAP and field performance is where detection projects die. I've trained models for orchards at noon and ports at midnight — here's the discipline that closes the gap.

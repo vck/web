@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import Header from '../../../components/Header.astro';
+import { SITE_TITLE } from '../../../consts';
+import { slugifyTopic } from '../../../utils/topics';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+	return tags.map((tag) => ({
+		params: { topic: slugifyTopic(tag) },
+		props: { tag },
+	}));
+}
+
+const { tag } = Astro.props;
+const posts = (await getCollection('blog'))
+	.filter((post) => post.data.tags.includes(tag))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${tag} — Blog — ${SITE_TITLE}`} description={`Posts on ${tag} by ${SITE_TITLE}.`} />
+	</head>
+	<body>
+		<Header />
+		<section class="page-hero">
+			<div class="wrap">
+				<p class="eyebrow"><a href="/blog" style="color: inherit">Writing</a> / Topic</p>
+				<h1>{tag}</h1>
+				<p class="lede">
+					{posts.length} post{posts.length === 1 ? '' : 's'} on {tag.toLowerCase()}.
+				</p>
+			</div>
+		</section>
+		<main class="wrap">
+			<ul class="post-rows">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>
+								<span class="post-date">
+									<FormattedDate date={post.data.pubDate} />
+								</span>
+								<span class="post-text">
+									<span class="post-title">{post.data.title}</span>
+									<span class="post-desc">{post.data.description}</span>
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+			<a class="section-link" href="/blog">All posts →</a>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -2,6 +2,7 @@
 title: 'Latent Space for Chemometrics: What Spectra Are Really Telling You'
 description: 'PCA, PLS, and latent variables for spectral data — how to compress thousands of collinear wavelengths into a handful of meaningful directions.'
 pubDate: 'Sep 22 2026'
+tags: ['Chemometrics', 'Machine Learning']
 ---
 
 A near-infrared spectrum hands you two thousand highly correlated numbers to predict one — moisture, protein, octane. Ordinary regression drowns in that collinearity. Chemometrics survives it by refusing to work in wavelength space at all. Instead, everything happens in **latent space**: a handful of directions that carry the chemistry.

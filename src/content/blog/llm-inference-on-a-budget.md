@@ -2,6 +2,7 @@
 title: 'LLM Inference on a Budget: What Actually Moves the Needle'
 description: 'KV-cache, quantization, batching, and speculative decoding — the practitioner shortlist for serving LLMs fast without a GPU cluster.'
 pubDate: 'Sep 18 2026'
+tags: ['LLMs', 'Inference']
 ---
 
 Most LLM inference advice assumes you have an H100 cluster. I usually don't. My systems run where the budget is — constrained servers, edge boxes, cost-sensitive B2B deployments. Here is the shortlist of techniques that actually move the needle, in the order I'd reach for them.

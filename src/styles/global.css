@@ -294,8 +294,65 @@ hr {
 	color: var(--ink);
 }
 .blog-search {
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 	max-width: 32rem;
+}
+.topic-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	list-style: none;
+	margin: 0 0 2rem;
+	padding: 0;
+}
+.topic-chips a {
+	display: inline-block;
+	font-size: 0.88rem;
+	font-weight: 600;
+	padding: 0.45em 1em;
+	border-radius: 999px;
+	border: 1px solid var(--line);
+	background: var(--surface);
+	color: var(--ink-soft);
+	text-decoration: none;
+}
+.topic-chips a:hover {
+	border-color: var(--accent);
+	color: var(--accent-dark);
+}
+.topic-chips .count {
+	color: var(--muted);
+	font-weight: 400;
+}
+.post-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 0.6rem;
+}
+.post-tags > span,
+a.post-tag {
+	font-size: 0.76rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--accent-dark);
+	background: var(--accent-soft);
+	border-radius: 999px;
+	padding: 0.3em 0.9em;
+}
+a.post-tag {
+	text-decoration: none;
+}
+a.post-tag:hover {
+	background: var(--accent);
+	color: #fff;
+}
+.post-tag-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 1.25rem;
 }
 .post-rows {
 	list-style: none;

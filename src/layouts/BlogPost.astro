@@ -6,11 +6,12 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
+import { slugifyTopic } from '../utils/topics';
 import 'katex/dist/katex.min.css';
 
 type Props = CollectionEntry<'blog'>['data'] & { hasMermaid?: boolean };
 
-const { title, description, pubDate, updatedDate, heroImage, hasMermaid = false } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags = [], hasMermaid = false } = Astro.props;
 
 const pageTitle = `${title} — ${SITE_TITLE}`;
 const jsonLd = {
@@ -52,6 +53,17 @@ const jsonLd = {
 						)
 					}
 				</div>
+				{
+					tags.length > 0 && (
+						<div class="post-tag-row">
+							{tags.map((tag) => (
+								<a class="post-tag" href={`/blog/topic/${slugifyTopic(tag)}/`}>
+									{tag}
+								</a>
+							))}
+						</div>
+					)
+				}
 			</div>
 		</section>
 		<main>
