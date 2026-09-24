@@ -4,7 +4,7 @@ const today = new Date();
 ---
 
 <footer>
-	<p class="foot-name">{SITE_TITLE}<span class="foot-sep" aria-hidden="true"> / </span>{SITE_ROLE}</p>
+	<p class="foot-name">{SITE_TITLE} <span class="foot-role">— {SITE_ROLE}</span></p>
 	<div class="foot-links">
 		<a href={SOCIALS.github} target="_blank" rel="me">GitHub</a>
 		<a href={SOCIALS.linkedin} target="_blank" rel="me">LinkedIn</a>
@@ -12,25 +12,24 @@ const today = new Date();
 		<a href={SOCIALS.email}>Email</a>
 		<a href="/rss.xml">RSS</a>
 	</div>
-	<p class="foot-copy">&copy; {today.getFullYear()} {SITE_TITLE}. All rights reserved.</p>
+	<p class="foot-copy">&copy; {today.getFullYear()} {SITE_TITLE}</p>
 </footer>
 <style>
 	footer {
-		padding: 3em 1em 4em 1em;
-		background: var(--ink);
-		color: rgba(255, 255, 255, 0.7);
+		padding: 3em 1em;
+		background: var(--paper);
+		border-top: 1px solid var(--line);
+		color: var(--muted);
 		text-align: center;
-		border-top: 4px solid var(--lime);
 	}
 	.foot-name {
 		margin: 0;
-		color: #fff;
-		font-weight: 800;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
+		color: var(--ink);
+		font-weight: 700;
 	}
-	.foot-sep {
-		color: var(--lime);
+	.foot-role {
+		color: var(--muted);
+		font-weight: 400;
 	}
 	.foot-links {
 		display: flex;
@@ -40,18 +39,16 @@ const today = new Date();
 		margin-top: 1em;
 	}
 	.foot-links a {
-		color: rgba(255, 255, 255, 0.7);
-		font-weight: 700;
-		font-size: 0.9rem;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		color: var(--muted);
+		font-weight: 600;
+		font-size: 0.92rem;
 		text-decoration: none;
 	}
 	.foot-links a:hover {
-		color: var(--lime);
+		color: var(--accent);
 	}
 	.foot-copy {
-		margin: 1.5em 0 0;
+		margin: 1.25em 0 0;
 		font-size: 0.85rem;
 	}
 </style>

@@ -48,22 +48,25 @@ const focus = [
 		<Header />
 		<section class="hero">
 			<div class="wrap">
-				<p class="eyebrow">AI Researcher / Computer Vision Engineer</p>
-				<h1>Vicky<br /><span class="stroke">Dasta</span></h1>
+				<span class="avatar" aria-hidden="true">V</span>
+				<p class="eyebrow">Hello, I'm</p>
+				<h1>Vicky Dasta</h1>
+				<p class="subtitle">An <strong>AI researcher</strong> and <strong>computer vision engineer</strong>.</p>
 				<p class="lede">
-					I build production-grade vision systems — from edge inference pipelines and
-					multi-object tracking to applied research that ships. B.Sc. in Physics,
-					Universitas Riau; founder-level operator across industrial AI and autonomous systems.
+					I build vision systems that work in the real world — from edge inference pipelines
+					and multi-object tracking to applied research that ships. Physics-trained, and I lead
+					teams that take AI from lab to production.
 				</p>
 				<div class="cta-row">
 					<a class="btn btn-solid" href="/blog">Read the blog</a>
-					<a class="btn btn-ghost" href="/about">About me</a>
+					<a class="btn btn-ghost" href="/about">More about me</a>
 				</div>
 			</div>
 		</section>
 		<main class="wrap">
 			<section class="home-section" aria-labelledby="focus-heading">
-				<h2 class="section-title" id="focus-heading">Focus</h2>
+				<h2 class="section-title" id="focus-heading">What I do</h2>
+				<p class="section-sub">The problems I keep coming back to, in the lab and in the field.</p>
 				<ul class="cards">
 					{
 						focus.map((item) => (
@@ -77,7 +80,8 @@ const focus = [
 				</ul>
 			</section>
 			<section class="home-section" aria-labelledby="writing-heading">
-				<h2 class="section-title" id="writing-heading">Latest writing</h2>
+				<h2 class="section-title" id="writing-heading">Writing</h2>
+				<p class="section-sub">Notes on vision systems, inference, and training.</p>
 				<ul class="post-rows">
 					{
 						posts.map((post) => (

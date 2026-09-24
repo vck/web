@@ -32,54 +32,6 @@ const jsonLd = {
 	<head>
 		<BaseHead title={pageTitle} description={description} />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-		<style>
-			.hero-image {
-				width: 100%;
-				margin-bottom: 1rem;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border: 2px solid var(--ink);
-				border-radius: 4px;
-				box-shadow: 6px 6px 0 var(--ink);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-			.mermaid {
-				background: #fff;
-				border: 2px solid var(--ink);
-				border-radius: 4px;
-				box-shadow: 6px 6px 0 var(--ink);
-				padding: 1.5rem 1rem;
-				margin: 2rem 0;
-				overflow-x: auto;
-			}
-			.prose figure {
-				margin: 2rem 0;
-			}
-			.prose figure img {
-				border: 2px solid var(--ink);
-				border-radius: 4px;
-				box-shadow: 6px 6px 0 var(--ink);
-			}
-			.prose figcaption {
-				margin-top: 0.75rem;
-				font-family: var(--mono);
-				font-size: 0.8rem;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-				color: rgb(var(--gray));
-			}
-		</style>
 	</head>
 
 	<body>
