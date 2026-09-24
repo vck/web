@@ -410,67 +410,42 @@ hr {
 	font-size: 1rem;
 }
 
-/* ---------- chip cloud ---------- */
-.chips {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.6rem;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.chips li {
-	font-size: 0.9rem;
-	font-weight: 600;
-	padding: 0.45em 1em;
-	border-radius: 999px;
-	background: var(--accent-soft);
-	color: var(--accent-dark);
-}
-
-/* ---------- contact panel ---------- */
+/* ---------- contact section ---------- */
 .cta-band {
 	padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(3rem, 7vw, 5rem);
+	border-top: 1px solid var(--line);
 }
-.cta-card {
-	background: var(--surface);
-	border: 1px solid var(--line);
-	border-radius: calc(var(--radius) + 8px);
-	box-shadow: var(--shadow);
-	padding: clamp(2rem, 5vw, 3.5rem);
-	text-align: left;
-}
-.cta-card h2 {
+.cta-band h2 {
 	font-size: clamp(1.75rem, 4.5vw, 2.75rem);
 	font-weight: 800;
 	letter-spacing: -0.025em;
 	line-height: 1.1;
 	margin: 0 0 0.75rem 0;
 }
-.cta-card p {
+.cta-band p {
 	color: var(--ink-soft);
 	max-width: 34rem;
 	margin: 0;
 }
-.cta-card .cta-row {
+.cta-band .cta-row {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.75rem;
 	margin-top: 1.75rem;
 }
-.cta-card .social-row {
+.cta-band .social-row {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.25rem 1.5rem;
 	margin-top: 1.5rem;
 }
-.cta-card .social-row a {
+.cta-band .social-row a {
 	color: var(--muted);
 	font-weight: 600;
 	font-size: 0.95rem;
 	text-decoration: none;
 }
-.cta-card .social-row a:hover {
+.cta-band .social-row a:hover {
 	color: var(--accent);
 }
 
