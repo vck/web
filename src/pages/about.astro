@@ -6,22 +6,18 @@ import { SITE_TITLE, SOCIALS } from '../consts';
 
 const now = [
 	{
-		index: '01',
 		title: 'CEO & Founder — Hilbertex',
 		text: 'Leading an AI engineering lab shipping CV, ML, and LLM-based systems for B2B and B2G markets — architecture to production with a team of 5+ engineers.',
 	},
 	{
-		index: '02',
 		title: 'Founder & CTO — Nusantara Pixel Labs',
 		text: 'Vantara: AI vision and CCTV intelligence — YOLOv8 + ByteTrack on edge CPU/Jetson hardware, built for ports, power, and energy operators.',
 	},
 	{
-		index: '03',
 		title: 'Founder & CEO — Fermi Dynamics',
 		text: 'Industrial AI and autonomous systems venture — expanding applied vision beyond the lab into heavy industry.',
 	},
 	{
-		index: '04',
 		title: 'CTO — RTNSYS',
 		text: 'Chief Technology Officer at PT. Rananum Teknologi Nusantara.',
 	},
@@ -91,13 +87,12 @@ const arsenal = [
 		<main class="wrap">
 			<section class="home-section" aria-labelledby="now-heading">
 				<h2 class="section-title" id="now-heading">Now</h2>
-				<ul class="cards">
+				<p class="section-sub">What I'm leading and building today.</p>
+				<ul class="intro-list">
 					{
 						now.map((item) => (
-							<li class="card">
-								<span class="index">{item.index}</span>
-								<h3>{item.title}</h3>
-								<p>{item.text}</p>
+							<li>
+								<strong>{item.title}</strong> — {item.text}
 							</li>
 						))
 					}
