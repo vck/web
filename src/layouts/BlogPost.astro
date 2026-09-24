@@ -8,9 +8,9 @@ import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 import 'katex/dist/katex.min.css';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { hasMermaid?: boolean };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, hasMermaid = false } = Astro.props;
 
 const pageTitle = `${title} — ${SITE_TITLE}`;
 const jsonLd = {
@@ -42,6 +42,7 @@ const jsonLd = {
 				<h1>{title}</h1>
 				<p class="lede">{description}</p>
 				<div class="meta-row">
+					<span>By {SITE_TITLE}</span>
 					<span><FormattedDate date={pubDate} /></span>
 					{
 						updatedDate && (
@@ -66,21 +67,25 @@ const jsonLd = {
 			</article>
 		</main>
 		<Footer />
-		<script>
-			import mermaid from 'mermaid';
-			mermaid.initialize({ startOnLoad: false });
-			const blocks = document.querySelectorAll('pre > code.language-mermaid');
-			for (const code of blocks) {
-				const pre = code.parentElement;
-				if (!pre) continue;
-				const div = document.createElement('div');
-				div.className = 'mermaid';
-				div.textContent = code.textContent ?? '';
-				pre.replaceWith(div);
-			}
-			if (blocks.length > 0) {
-				await mermaid.run();
-			}
-		</script>
+		{
+			hasMermaid && (
+				<script>
+					import mermaid from 'mermaid';
+					mermaid.initialize({ startOnLoad: false });
+					const blocks = document.querySelectorAll('pre > code.language-mermaid');
+					for (const code of blocks) {
+						const pre = code.parentElement;
+						if (!pre) continue;
+						const div = document.createElement('div');
+						div.className = 'mermaid';
+						div.textContent = code.textContent ?? '';
+						pre.replaceWith(div);
+					}
+					if (blocks.length > 0) {
+						await mermaid.run();
+					}
+				</script>
+			)
+		}
 	</body>
 </html>

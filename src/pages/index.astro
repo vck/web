@@ -35,9 +35,9 @@ const personLd = {
 				<h1>Vicky Dasta</h1>
 				<p class="subtitle">An <strong>AI researcher</strong> and <strong>computer vision engineer</strong>.</p>
 				<p class="lede">
-					I build vision systems that work in the real world — from edge inference pipelines
-					and multi-object tracking to applied research that ships. Physics-trained, and I lead
-					teams that take AI from lab to production.
+					I take AI from lab to production — edge inference pipelines, multi-object
+					tracking, and applied research that ships. Physics-trained, leading teams
+					that deliver.
 				</p>
 				<div class="cta-row">
 					<a class="btn btn-solid" href="/blog">Read the blog</a>
@@ -71,17 +71,19 @@ const personLd = {
 			<section class="home-section" aria-labelledby="research-heading">
 				<h2 class="section-title" id="research-heading">Research</h2>
 				<p class="section-sub">Physics-rooted questions I keep investigating.</p>
-				<div class="intro">
+				<div class="intro research-prose">
 					<p>
 						Before production systems, there was a photonics lab: optics, signal processing,
-						and computational physics applied to real measurement problems. That foundation
-						still drives how I think about imaging — as physics first, models second.
+						and computational physics applied to real measurement problems — including laser
+						cross-section volumetry for my undergraduate thesis at Universitas Riau. That
+						foundation still drives how I think about imaging: physics first, models second.
 					</p>
-					<ul class="intro-list">
-						<li><strong>Volumetric estimation</strong> — laser cross-sections and image processing for 3D measurement, my undergraduate thesis at Universitas Riau.</li>
-						<li><strong>Spectral analysis</strong> — latent-variable methods (PCA, PLS) for extracting chemistry from high-dimensional spectra. <a href="/blog/latent-space-chemometrics/">Read the primer →</a></li>
-						<li><strong>Field machine vision</strong> — taking lab-grade imaging ideas into orchards, ports, and factories, where the lighting never cooperates.</li>
-					</ul>
+					<p>
+						Lately that means spectral analysis — latent-variable methods like PCA and PLS
+						for pulling chemistry out of high-dimensional spectra — alongside field machine
+						vision that has to survive orchards, ports, and factories, where the lighting
+						never cooperates. I wrote up the spectra side as a primer: <a href="/blog/latent-space-chemometrics/">Latent space for chemometrics →</a>
+					</p>
 				</div>
 			</section>
 			<section class="home-section" aria-labelledby="writing-heading">
@@ -102,6 +104,13 @@ const personLd = {
 					}
 				</ul>
 				<a class="section-link" href="/blog">All posts →</a>
+			</section>
+			<section class="home-section" aria-labelledby="contact-heading">
+				<h2 class="section-title" id="contact-heading">Get in touch</h2>
+				<p class="section-sub">Industrial sortation, CCTV intelligence, edge perception, or research collaboration.</p>
+				<div class="cta-row">
+					<a class="btn btn-solid" href={SOCIALS.email}>hi@dasta.web.id</a>
+				</div>
 			</section>
 		</main>
 		<Footer />

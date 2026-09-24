@@ -13,8 +13,10 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+// Only pages with diagrams pay for the Mermaid runtime.
+const hasMermaid = post.body?.includes('```mermaid') ?? false;
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} hasMermaid={hasMermaid}>
 	<Content />
 </BlogPost>

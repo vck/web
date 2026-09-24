@@ -10,7 +10,7 @@
 	--surface: #ffffff;
 	--ink: #292524;
 	--ink-soft: #44403c;
-	--muted: #78716c;
+	--muted: #6b6259;
 	--line: #e8e4dc;
 	--accent: #4f46e5;
 	--accent-dark: #4338ca;
@@ -155,19 +155,6 @@ hr {
 .eyebrow .dot {
 	color: var(--accent);
 }
-.avatar {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 3.5rem;
-	height: 3.5rem;
-	border-radius: 50%;
-	background: var(--accent-soft);
-	color: var(--accent);
-	font-size: 1.6rem;
-	font-weight: 800;
-	margin-bottom: 1.5rem;
-}
 
 /* ---------- hero ---------- */
 .hero {
@@ -232,6 +219,12 @@ hr {
 	color: var(--accent-dark);
 	border-color: var(--accent);
 	transform: translateY(-1px);
+}
+.cta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 2rem;
 }
 
 /* ---------- inner page hero ---------- */
@@ -299,6 +292,10 @@ hr {
 }
 .intro-list strong {
 	color: var(--ink);
+}
+.blog-search {
+	margin-bottom: 2rem;
+	max-width: 32rem;
 }
 .post-rows {
 	list-style: none;
