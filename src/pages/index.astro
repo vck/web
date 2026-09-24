@@ -19,23 +19,6 @@ const personLd = {
 	sameAs: [SOCIALS.github, SOCIALS.linkedin, SOCIALS.scholar],
 };
 
-const focus = [
-	{
-		index: '01',
-		title: 'Detection & Tracking',
-		text: 'YOLOv8, ByteTrack, and multi-object tracking for CCTV intelligence and industrial sortation — vision that holds up in the field.',
-	},
-	{
-		index: '02',
-		title: 'Edge Inference',
-		text: 'ONNX pipelines deployed on Jetson and CPU hardware. Real-time perception where the compute actually lives.',
-	},
-	{
-		index: '03',
-		title: 'Applied Research',
-		text: 'Physics-rooted imaging — from laser cross-section volumetry to agentic LLM systems. Research that ships to production.',
-	},
-];
 ---
 
 <!doctype html>
@@ -66,17 +49,24 @@ const focus = [
 			<section class="home-section" aria-labelledby="focus-heading">
 				<h2 class="section-title" id="focus-heading">What I do</h2>
 				<p class="section-sub">The problems I keep coming back to, in the lab and in the field.</p>
-				<ul class="cards">
-					{
-						focus.map((item) => (
-							<li class="card">
-								<span class="index">{item.index}</span>
-								<h3>{item.title}</h3>
-								<p>{item.text}</p>
-							</li>
-						))
-					}
-				</ul>
+				<div class="intro">
+					<p>
+						I work across the full vision stack. That starts with data — collecting from
+						deployment cameras, auditing labels, and training detectors that hold up on
+						footage the benchmarks never saw.
+					</p>
+					<p>
+						Then comes inference where it actually runs: ONNX pipelines, careful quantization,
+						and detect-sparse/track-dense designs on Jetson and CPU edge boxes. And around all
+						of it, leading teams that take AI systems from architecture to production — CCTV
+						intelligence, industrial sortation, and applied research that ships.
+					</p>
+					<ul class="intro-list">
+						<li><strong>Training</strong> — field datasets, honest validation, models that survive deployment.</li>
+						<li><strong>Inference</strong> — real-time perception on the hardware at hand.</li>
+						<li><strong>Shipping</strong> — teams, pipelines, and systems in production.</li>
+					</ul>
+				</div>
 			</section>
 			<section class="home-section" aria-labelledby="writing-heading">
 				<h2 class="section-title" id="writing-heading">Writing</h2>
