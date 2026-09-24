@@ -12,7 +12,10 @@ const today = new Date();
 		<a href={SOCIALS.email}>Email</a>
 		<a href="/rss.xml">RSS</a>
 	</div>
-	<p class="foot-copy">&copy; {today.getFullYear()} {SITE_TITLE}</p>
+	<p class="foot-copy">
+		&copy; {today.getFullYear()} {SITE_TITLE} · Content licensed
+		<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license">CC BY 4.0</a>
+	</p>
 </footer>
 <style>
 	footer {
@@ -50,5 +53,11 @@ const today = new Date();
 	.foot-copy {
 		margin: 1.25em 0 0;
 		font-size: 0.85rem;
+	}
+	.foot-copy a {
+		color: var(--muted);
+	}
+	.foot-copy a:hover {
+		color: var(--accent);
 	}
 </style>
